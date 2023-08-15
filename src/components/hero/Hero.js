@@ -3,10 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Paper } from "@mui/material";
 import { Button } from "react-bootstrap";
 import Carousel from "react-material-ui-carousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Hero.css";
 
 const Hero = ({ movies }) => {
+  const navigate = useNavigate();
+
+  function reviews(movieId) {
+    navigate(`/Reviews/${movieId}`);
+  }
+
   return (
     <div className="movie-carousel-container">
       <Carousel>
