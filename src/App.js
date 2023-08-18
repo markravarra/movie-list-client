@@ -5,8 +5,9 @@ import api from "./api/axiosConfig";
 import Layout from "./components/Layout";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
-import Trailer from "./components/trailer/Trailer";
+import NotFound from './components/notFound/NotFound';
 import Reviews from "./components/reviews/Reviews";
+import Trailer from "./components/trailer/Trailer";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -30,7 +31,7 @@ function App() {
       const singleMovie = response.data;
       
       setMovie(singleMovie);
-      console.log(reviews);
+
       setReviews(singleMovie.reviewIds);
     } catch (error) {
       console.error(error);
@@ -59,6 +60,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="*" element = {<NotFound/>}></Route>
         </Route>
       </Routes>
     </div>
